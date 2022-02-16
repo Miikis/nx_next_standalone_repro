@@ -1,0 +1,28 @@
+{
+  "root": "apps/haha-e2e",
+  "sourceRoot": "apps/haha-e2e/src",
+  "projectType": "application",
+  "targets": {
+    "e2e": {
+      "executor": "@nrwl/cypress:cypress",
+      "options": {
+        "cypressConfig": "apps/haha-e2e/cypress.json",
+        "devServerTarget": "haha:serve"
+      },
+      "configurations": {
+        "production": {
+          "devServerTarget": "haha:serve:production"
+        }
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["apps/haha-e2e/**/*.{js,ts}"]
+      }
+    }
+  },
+  "tags": [],
+  "implicitDependencies": ["haha"]
+}
